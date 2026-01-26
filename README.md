@@ -49,3 +49,11 @@ The goal is to move beyond running models and toward **economically meaningful, 
 This repository will continue to grow as the course progresses, with additional labs, models, and applied analyses that reflect my development as an economist working with data.
 
 Thank you for visiting!
+# The Cost of Living Crisis: A Data-Driven Analysis
+## The Problem
+Why the "Average" CPI fails students.
+## Methodology
+Python, APIs, and Index Theory (Laspeyres index).
+## Key Findings
+My analysis reveals a **2.18% divergence** between student-specific costs and national inflation since 2016, indicating that students face systematically higher inflation than suggested by official CPI measures.
+
