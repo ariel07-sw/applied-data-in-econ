@@ -1,0 +1,10 @@
+# do NOT track large data files
+data/raw/
+data/processed/
+*.sas7bdat
+*.zip
+*.csv
+
+# python / notebooks
+.ipynb_checkpoints/
+__pycache__/
