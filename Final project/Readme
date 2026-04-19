@@ -1,0 +1,104 @@
+# ECON 5200 Final Project Checkpoint  
+## Does Participation in a Job Training Program Increase Earnings?
+
+## Project Overview
+This project studies whether participation in a job training program causally increases post-program earnings.
+
+The central causal question is:
+
+**Does participation in a job training program increase earnings?**
+
+This is a causal inference project rather than a prediction project. The goal is not simply to predict which individuals earn more, but to estimate whether job training itself causes later earnings to rise.
+
+---
+
+## Research Question
+**Does participation in a job training program increase earnings?**
+
+---
+
+## Identification Strategy
+The primary identification strategy is:
+
+**Experimental comparison (RCT-style treatment vs. control comparison), supplemented with regression adjustment using observed covariates.**
+
+I begin with a naive comparison between treated and untreated individuals, then estimate a controlled model that adjusts for important pre-treatment characteristics.
+
+---
+
+## Key Assumption
+The key assumption is:
+
+**Treatment assignment is independent of potential outcomes in the experimental sample.**
+
+In the regression-adjusted specification, I also rely on the idea that observed covariates capture important pre-treatment differences across individuals.
+
+---
+
+## Why Prediction Alone Is Insufficient
+A prediction-only model can identify which individuals tend to have higher earnings, but it cannot isolate whether participation in job training itself causes earnings to increase.
+
+Because this project asks a policy-relevant “what if” question, causal identification is necessary.
+
+---
+
+## Dataset
+This project uses the **LaLonde dataset**.
+
+- **Source:** Kaggle, *LaLonde A/B Testing*
+- **Sample size:** 614 observations
+- **Treatment variable:** `treat`
+- **Outcome variable:** `re78` (post-program earnings)
+- **Control variables:** `age`, `educ`, `black`, `hispan`, `married`, `nodegree`, `re74`, `re75`
+
+---
+
+## Data Description
+The dataset has been loaded and cleaned in the notebook.
+
+- Initial unnecessary index column removed
+- Final working dataset contains **614 rows and 10 columns**
+- All key variables are numeric and ready for analysis
+
+---
+
+## Missing Data Assessment
+Missing data were assessed using a variable-by-variable null count.
+
+**Result:** All variables used in the analysis have **zero missing values**.
+
+---
+
+## Balance Checks
+Balance checks compare treated and untreated individuals on:
+
+- age
+- education
+- race/ethnicity indicators
+- marital status
+- degree status
+- pre-program earnings
+
+These comparisons help evaluate whether the treatment and control groups differ systematically before treatment.
+
+---
+
+## Visualizations
+The notebook includes at least three visualizations with interpretation:
+
+1. **Boxplot of post-program earnings (`re78`) by treatment status**  
+   Shows the distribution of earnings in treated and untreated groups, including skewness and outliers.
+
+2. **Naive vs. controlled estimate comparison plot**  
+   Compares the simple treatment estimate to the regression-adjusted estimate with confidence intervals.
+
+3. **Additional exploratory treatment/covariate visualization**  
+   Used to examine group differences and support balance-check interpretation.
+
+---
+
+## Naive Estimate
+A naive benchmark was estimated using OLS:
+
+```text
+re78 ~ treat
