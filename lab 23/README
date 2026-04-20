@@ -1,40 +1,35 @@
 # FedSpeak 2.0 — NLP Pipeline for Central Bank Communications
 
 ## Objective
-
 Built and repaired a production-style NLP pipeline for Federal Reserve minutes to improve financial text preprocessing, domain-specific sentiment measurement, feature engineering, and downstream predictive analysis of policy regimes.
 
 ## Methodology
-
-* Diagnosed three planted failures in the original NLP workflow: a naive whitespace tokenizer, an inappropriate general-purpose sentiment dictionary, and poorly specified TF-IDF parameters.
-* Replaced basic token splitting with a structured preprocessing pipeline using lowercasing, regex cleanup, `nltk.word_tokenize`, stop-word removal, and lemmatization.
-* Switched sentiment scoring from the Harvard General Inquirer dictionary to a Loughran–McDonald style financial lexicon better suited to central bank and macro-financial language.
-* Re-specified TF-IDF with stronger document-frequency filtering and n-gram expansion to reduce noise and preserve informative policy phrases.
-* Encoded FOMC documents with the `all-MiniLM-L6-v2` sentence-transformer model to generate dense semantic representations.
-* Compared TF-IDF and embedding-based clustering using unsupervised separation metrics.
-* Evaluated predictive performance of TF-IDF and embeddings in a time-ordered classification setting for tightening versus easing/holding policy regimes.
-* Packaged the workflow into a reusable `fomc_sentiment.py` module with `preprocess_fomc()`, `compute_lm_sentiment()`, and `build_tfidf_matrix()`.
+- Diagnosed three planted failures in the original NLP workflow: a naive whitespace tokenizer, an inappropriate general-purpose sentiment dictionary, and poorly specified TF-IDF parameters.
+- Replaced basic token splitting with a structured preprocessing pipeline using lowercasing, regex cleanup, `nltk.word_tokenize`, stop-word removal, and lemmatization.
+- Switched sentiment scoring from the Harvard General Inquirer dictionary to a Loughran–McDonald style financial lexicon better suited to central bank and macro-financial language.
+- Re-specified TF-IDF with stronger document-frequency filtering and n-gram expansion to reduce noise and preserve informative policy phrases.
+- Encoded FOMC documents with the `all-MiniLM-L6-v2` sentence-transformer model to generate dense semantic representations.
+- Compared TF-IDF and embedding-based clustering using unsupervised separation metrics.
+- Evaluated predictive performance of TF-IDF and embeddings in a time-ordered classification setting for tightening versus easing/holding policy regimes.
+- Packaged the workflow into a reusable `fomc_sentiment.py` module with `preprocess_fomc()`, `compute_lm_sentiment()`, and `build_tfidf_matrix()`.
 
 ## Key Findings
-
-* The repaired pipeline removed preprocessing artifacts and produced cleaner, more interpretable financial text features.
-* Domain-specific sentiment scoring substantially improved over the generic dictionary benchmark.
-* Sentence-transformer embeddings captured semantic similarity effectively, but TF-IDF performed better on the final policy-regime prediction task.
-* **TF-IDF achieved the higher AUC (0.811), compared with embeddings (0.721).**
-* The result suggests that Fed tightening regimes are strongly associated with distinctive policy vocabulary, which well-tuned sparse text features capture especially well.
+- The repaired pipeline removed preprocessing artifacts and produced cleaner, more interpretable financial text features.
+- Domain-specific sentiment scoring substantially improved over the generic dictionary benchmark.
+- Sentence-transformer embeddings captured semantic similarity effectively, but TF-IDF performed better on the final policy-regime prediction task.
+- **TF-IDF achieved the higher AUC (0.811), compared with embeddings (0.721).**
+- The result suggests that Fed tightening regimes are strongly associated with distinctive policy vocabulary, which well-tuned sparse text features capture especially well.
 
 ## Files
-
-* `notebooks/lab-ch23-diagnostic.ipynb` — main lab notebook
-* `src/fomc_sentiment.py` — reusable FOMC text analysis module
-* `README.md` — project summary
+- `notebooks/lab-ch23-diagnostic.ipynb` — main lab notebook
+- `src/fomc_sentiment.py` — reusable FOMC text analysis module
+- `README.md` — project summary
 
 ## Skills Demonstrated
-
-* NLP pipeline debugging
-* Financial text preprocessing
-* Domain-specific sentiment analysis
-* TF-IDF feature engineering
-* Sentence-transformer embeddings
-* Clustering and predictive model comparison
-* Reusable Python module design
+- NLP pipeline debugging
+- Financial text preprocessing
+- Domain-specific sentiment analysis
+- TF-IDF feature engineering
+- Sentence-transformer embeddings
+- Clustering and predictive model comparison
+- Reusable Python module design
