@@ -5,7 +5,7 @@ Reusable functions for STL decomposition, stationarity testing,
 structural break detection, MSTL decomposition, and block-bootstrap
 trend uncertainty estimation.
 
-Author: [Your Name]
+Author: [Weijia Song]
 Course: ECON 5200, Lab 20
 """
 
