@@ -1,1 +1,10 @@
-
+numpy
+pandas
+matplotlib
+statsmodels
+fredapi
+ruptures
+streamlit
+plotly
+jupyter
+notebook
